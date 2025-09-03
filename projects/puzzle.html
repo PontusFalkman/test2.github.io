@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Puzzle Prototype — Project Detail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="../css/style.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../css/style.css"></noscript>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">Our Unity Projects</a>
+    <nav class="nav" aria-label="Primary">
+      <div class="menu" role="menubar">
+        <div class="menu-group" data-group="work">
+          <button class="nav-link menu-toggle" aria-expanded="false" aria-haspopup="true" role="menuitem">Work</button>
+          <div class="menu-panel" role="menu">
+            <a class="menu-link" href="../projects/index.html" role="menuitem">All projects</a>
+            <a class="menu-link" href="../projects/puzzle.html" role="menuitem">Puzzle</a>
+            <a class="menu-link" href="../projects/platformer.html" role="menuitem">Platformer</a>
+          </div>
+        </div>
+        <div class="menu-group" data-group="studio">
+          <button class="nav-link menu-toggle" aria-expanded="false" aria-haspopup="true" role="menuitem">Studio</button>
+          <div class="menu-panel" role="menu">
+            <a class="menu-link" href="../about.html" role="menuitem">About</a>
+            <a class="menu-link" href="../team.html" role="menuitem">Team</a>
+          </div>
+        </div>
+        <div class="menu-group" data-group="capabilities">
+          <button class="nav-link menu-toggle" aria-expanded="false" aria-haspopup="true" role="menuitem">Capabilities</button>
+          <div class="menu-panel" role="menu">
+            <a class="menu-link" href="../skills.html" role="menuitem">Skills</a>
+          </div>
+        </div>
+        <div class="menu-group" data-group="media">
+          <button class="nav-link menu-toggle" aria-expanded="false" aria-haspopup="true" role="menuitem">Media</button>
+          <div class="menu-panel" role="menu">
+            <a class="menu-link" href="../gallery.html" role="menuitem">Gallery</a>
+            <a class="menu-link" href="../videos.html" role="menuitem">Videos</a>
+          </div>
+        </div>
+        <div class="menu-group" data-group="resources">
+          <button class="nav-link menu-toggle" aria-expanded="false" aria-haspopup="true" role="menuitem">Resources</button>
+          <div class="menu-panel" role="menu">
+            <a class="menu-link" href="../downloads.html" role="menuitem">Downloads</a>
+          </div>
+        </div>
+        <a class="nav-link cta" href="../contact.html" role="menuitem">Contact us</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main" class="container page" role="main">
+  <nav class="breadcrumb" aria-label="breadcrumb"><ol>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="index.html">Work</a></li>
+    <li aria-current="page">Puzzle Prototype</li>
+  </ol></nav>
+
+  <h1>Puzzle Prototype</h1>
+  <p class="muted">Personal hobby project. Built off-hours on personal equipment.</p>
+
+  <div class="grid" style="grid-template-columns:1fr 1fr; gap:16px;">
+    <div class="card"><img src="../images/puzzle_hero.jpg" alt="Puzzle screenshot" width="1200" height="675"></div>
+    <div class="card"><div class="card-body">
+      <h3>Overview</h3>
+      <p>Drag-and-drop slots with snap validation and rule-based sorting. Light audio feedback and simple UI transitions.</p>
+      <div class="card-actions">
+        <a class="btn btn-light" href="../games/puzzle/index.html" target="_blank" rel="noopener">Play (WebGL)</a>
+        <a class="btn btn-ghost" href="https://github.com/USER/REPO/releases/download/v0.9/Puzzle_win64_v0.9.zip" target="_blank" rel="noopener">Download (ZIP)</a>
+        <a class="btn btn-ghost" href="https://github.com/USER/PuzzleRepo" target="_blank" rel="noopener">Repo</a>
+      </div>
+    </div></div>
+  </div>
+
+  <section style="margin-top:24px">
+    <h2>Highlights</h2>
+    <ul class="bullets">
+      <li>Drag, snap, and slot validation.</li>
+      <li>Sorting rules and win condition.</li>
+      <li>Small UI/SFX feedback loops.</li>
+    </ul>
+  </section>
+
+  <section style="margin-top:24px">
+    <h2>Tech Notes</h2>
+    <ul class="bullets">
+      <li>Unity 6 LTS, C#.</li>
+      <li>Script separation: input, slot logic, game state.</li>
+      <li>Simple profiling and GC-aware updates.</li>
+    </ul>
+  </section>
+
+  <p class="muted">Learning and practice artifact. No commercial use.</p>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Personal Portfolio</p>
+    <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Cycle color theme">Theme: Indigo</button>
+    <button id="hcToggle" class="btn btn-ghost" type="button" aria-pressed="false" aria-label="Toggle high contrast">High contrast: Off</button>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

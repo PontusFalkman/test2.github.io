@@ -1,99 +1,199 @@
-// Minimal enhancements + theme + high contrast + meta theme-color
+// A self-contained module for locking/unlocking body scroll.
+const scrollLocker = (function() {
+  let scrollY = 0;
 
-function setYear(){
-  const y = document.getElementById('year');
-  if (y) y.textContent = new Date().getFullYear();
-}
+  function lock() {
+    scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+  }
 
-function enhanceNav(){
+  function unlock() {
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    window.scrollTo(0, scrollY);
+  }
+
+  return { lock, unlock };
+})();
+
+// A module for handling main navigation enhancements (dropdowns, active links).
+function initNavEnhancements() {
   const menu = document.querySelector('.menu');
   if (!menu) return;
+
   const groups = [...menu.querySelectorAll('.menu-group')];
-  const closeAll = (except) => {
-    groups.forEach(g => { if (g !== except){ g.classList.remove('open'); g.removeAttribute('aria-expanded'); }});
+  const closeAll = (exceptGroup = null) => {
+    groups.forEach(g => {
+      if (g !== exceptGroup) {
+        g.classList.remove('open');
+        const btn = g.querySelector('.menu-toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
   };
+
+  // Click to toggle a single submenu
   menu.addEventListener('click', (e) => {
-    const btn = e.target.closest('.menu-toggle'); if (!btn) return;
+    const btn = e.target.closest('.menu-toggle');
+    if (!btn) return;
     const group = btn.closest('.menu-group');
-    const open = !group.classList.contains('open');
-    closeAll();
-    if (open){ group.classList.add('open'); group.setAttribute('aria-expanded','true'); btn.focus(); }
-  });
-  document.addEventListener('click', (e) => { if (!e.target.closest('.menu')) closeAll(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
+    const willOpen = !group.classList.contains('open');
 
-  const current = location.pathname.replace(/index\.html$/,'');
-  menu.querySelectorAll('a[href]').forEach(a=>{
-    try{
+    closeAll(); // close others first
+    if (willOpen) {
+      group.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.focus();
+    }
+  });
+
+  // Click outside closes all
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.menu')) closeAll();
+  });
+
+  // Escape closes all
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAll();
+  });
+
+  // Initialize state: all closed
+  closeAll();
+
+  // Mark current page link
+  const current = location.pathname.replace(/index\.html$/, '');
+  menu.querySelectorAll('a[href]').forEach(a => {
+    try {
       const url = new URL(a.getAttribute('href'), location.origin);
-      if (url.pathname.replace(/index\.html$/,'') === current) a.setAttribute('aria-current','page');
-    }catch{}
+      if (url.pathname.replace(/index\.html$/, '') === current) {
+        a.setAttribute('aria-current', 'page');
+      }
+    } catch {}
   });
 }
 
-// === Theming ===
-const BASE_THEMES = ["indigo","teal","slate"]; // exclude high-contrast
+// A module for initializing the mobile hamburger menu.
+function initMobileNav() {
+  const navBtn = document.getElementById('navToggle');
+  const menuEl = document.getElementById('primaryMenu');
+  if (!navBtn || !menuEl) return;
 
-function setThemeLabel(name){
-  const btn = document.getElementById("themeToggle");
-  if (btn) btn.textContent = "Theme: " + name.charAt(0).toUpperCase() + name.slice(1);
-}
-
-function setHCLabel(enabled){
-  const btn = document.getElementById("hcToggle");
-  if (btn){
-    btn.textContent = "High contrast: " + (enabled ? "On" : "Off");
-    btn.setAttribute("aria-pressed", enabled ? "true" : "false");
+  function closeDrawer(){
+    if (!document.body.classList.contains('nav-open')) return;
+    document.body.classList.remove('nav-open');
+    scrollLocker.unlock();
+    navBtn.setAttribute('aria-expanded','false');
   }
+
+  navBtn.addEventListener('click', () => {
+    const open = !document.body.classList.contains('nav-open');
+    document.body.classList.toggle('nav-open', open);
+    navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) { scrollLocker.lock(); navBtn.focus(); } else { scrollLocker.unlock(); }
+  });
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('#primaryMenu') && !e.target.closest('#navToggle')) closeDrawer();
+  });
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 }
 
-function setMetaThemeColorFromCSS(){
-  const bg = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
-  let meta = document.querySelector('meta[name="theme-color"]');
-  if(!meta){
-    meta = document.createElement('meta');
-    meta.name = 'theme-color';
-    document.head.appendChild(meta);
+// A module for handling the theme switcher + OS High Contrast sync.
+function initTheme() {
+  const BASE_THEMES = ["indigo", "teal", "slate"];
+  const mqForced = window.matchMedia?.("(forced-colors: active)");
+
+  function setThemeLabel(name){
+    const btn = document.getElementById("themeToggle");
+    if (btn) btn.textContent = "Theme: " + name.charAt(0).toUpperCase() + name.slice(1);
   }
-  meta.setAttribute('content', bg || '#000');
-}
 
-function applyHighContrast(enabled){
-  localStorage.setItem("highContrast", enabled ? "1" : "0");
-  if (enabled){
-    document.documentElement.setAttribute("data-theme", "high-contrast");
-  } else {
-    const base = localStorage.getItem("theme") || BASE_THEMES[0];
-    document.documentElement.setAttribute("data-theme", base);
+  function setHCLabel(enabled, fromOS = false){
+    const btn = document.getElementById("hcToggle");
+    if (!btn) return;
+    if (fromOS) {
+      btn.textContent = "High contrast: OS";
+      btn.setAttribute("aria-pressed", "true");
+    } else {
+      btn.textContent = "High contrast: " + (enabled ? "On" : "Off");
+      btn.setAttribute("aria-pressed", enabled ? "true" : "false");
+    }
   }
-  setHCLabel(enabled);
-  setMetaThemeColorFromCSS();
-}
 
-function cycleTheme(){
-  const current = localStorage.getItem("theme") || BASE_THEMES[0];
-  const idx = BASE_THEMES.indexOf(current);
-  const next = BASE_THEMES[(idx + 1) % BASE_THEMES.length];
-  localStorage.setItem("theme", next);
-  setThemeLabel(next);
-  const hc = localStorage.getItem("highContrast") === "1";
-  if (!hc) {
-    document.documentElement.setAttribute("data-theme", next);
+  function setMetaThemeColorFromCSS(){
+    const bg = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
+    let meta = document.querySelector('meta[name="theme-color"]');
+    if(!meta){ meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
+    meta.setAttribute('content', bg || '#000');
+  }
+
+  function applyHighContrast(enabled){
+    localStorage.setItem("highContrast", enabled ? "1" : "0");
+    if (enabled){
+      document.documentElement.setAttribute("data-theme", "high-contrast");
+    } else {
+      const base = localStorage.getItem("theme") || BASE_THEMES[0];
+      document.documentElement.setAttribute("data-theme", base);
+    }
+    setHCLabel(enabled, false);
     setMetaThemeColorFromCSS();
   }
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-  setYear();
-  enhanceNav();
+  function applyBaseThemeFromStorage(){
+    const base = localStorage.getItem("theme") || BASE_THEMES[0];
+    document.documentElement.setAttribute("data-theme", base);
+    setThemeLabel(base);
+    setMetaThemeColorFromCSS();
+  }
 
-  // Restore theme state
-  const savedTheme = localStorage.getItem("theme") || BASE_THEMES[0];
-  const savedHC = localStorage.getItem("highContrast") === "1";
-  setThemeLabel(savedTheme);
-  setHCLabel(savedHC);
-  document.documentElement.setAttribute("data-theme", savedHC ? "high-contrast" : savedTheme);
-  setMetaThemeColorFromCSS();
+  function cycleTheme(){
+    const current = localStorage.getItem("theme") || BASE_THEMES[0];
+    const idx = BASE_THEMES.indexOf(current);
+    const next = BASE_THEMES[(idx + 1) % BASE_THEMES.length];
+    localStorage.setItem("theme", next);
+    setThemeLabel(next);
+
+    const hc = localStorage.getItem("highContrast") === "1";
+    // Only update live if not in HC (manual or OS)
+    const osHC = !!mqForced && mqForced.matches;
+    if (!hc && !osHC) {
+      document.documentElement.setAttribute("data-theme", next);
+      setMetaThemeColorFromCSS();
+    }
+  }
+
+  // Sync with OS-level High Contrast
+  function updateFromOS(){
+    const osHC = !!mqForced && mqForced.matches;
+    const manualHC = localStorage.getItem("highContrast") === "1";
+    if (osHC) {
+      // Force HC visually and mark label as OS-driven
+      document.documentElement.setAttribute("data-theme", "high-contrast");
+      setHCLabel(true, true);
+      setMetaThemeColorFromCSS();
+    } else {
+      // Respect manual choice or base theme
+      if (manualHC) {
+        document.documentElement.setAttribute("data-theme", "high-contrast");
+        setHCLabel(true, false);
+      } else {
+        applyBaseThemeFromStorage();
+        setHCLabel(false, false);
+      }
+    }
+  }
+
+  // Restore state on load
+  applyBaseThemeFromStorage();
+  updateFromOS();
 
   // Wire buttons
   const themeBtn = document.getElementById("themeToggle");
@@ -101,10 +201,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const hcBtn = document.getElementById("hcToggle");
   if (hcBtn) hcBtn.addEventListener("click", () => {
+    const osHC = !!mqForced && mqForced.matches;
+    if (osHC) {
+      // When OS forces HC, keep site in HC but still flip the stored preference.
+      const was = localStorage.getItem("highContrast") === "1";
+      localStorage.setItem("highContrast", was ? "0" : "1");
+      updateFromOS(); // keep label "OS" and theme in HC
+      return;
+    }
     const enabled = localStorage.getItem("highContrast") === "1";
     applyHighContrast(!enabled);
   });
+
+  // React to OS changes live
+  if (mqForced && mqForced.addEventListener) {
+    mqForced.addEventListener("change", updateFromOS);
+  } else if (mqForced && mqForced.addListener) {
+    // Safari fallback
+    mqForced.addListener(updateFromOS);
+  }
+}
+
+// Sets the copyright year in the footer.
+function setYear(){
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+}
+
+// Initialize all modules after the DOM is loaded.
+document.addEventListener('DOMContentLoaded', () => {
+  setYear();
+  initNavEnhancements();
+  initMobileNav();
+  initTheme();
 });
 
-// Optional: add this small inline snippet first in <head> to prevent theme flash:
+// Optional anti-flash snippet for <head>:
 // <script>try{const hc=localStorage.getItem("highContrast")==="1";const base=localStorage.getItem("theme")||"indigo";document.documentElement.setAttribute("data-theme",hc?"high-contrast":base);}catch(e){}</script>

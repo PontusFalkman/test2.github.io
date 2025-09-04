@@ -1,77 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Work — Unity Projects</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
   <link rel="preload" as="style" href="../css/style.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="../css/style.css"></noscript>
-  <link rel="canonical" href="https://pontusfalkman.github.io/test1.github.io/projects/index.html">
-  <meta name="description" content="Browse Unity hobby projects built off-hours: a drag-and-drop puzzle, a 2D platformer, and small systems demos.">
-  <meta property="og:title" content="Work — Unity Projects">
-  <meta property="og:description" content="Unity hobby projects: puzzle, platformer, and systems experiments.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pontusfalkman.github.io/test1.github.io/projects/">
-  <meta property="og:image" content="https://pontusfalkman.github.io/test1.github.io/images/systems_thumb.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Work — Unity Projects">
-  <meta name="twitter:description" content="Unity hobby projects: puzzle, platformer, and systems experiments.">
-  <meta name="twitter:image" content="https://pontusfalkman.github.io/test1.github.io/images/systems_thumb.jpg">
-  <script>try{var hc=localStorage.getItem("highContrast")==="1";var base=localStorage.getItem("theme")||"indigo";document.documentElement.setAttribute("data-theme",hc?"high-contrast":base);}catch(e){}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+
 <header class="site-header" role="banner">
   <div class="container header-inner">
-    <a class="brand" href="../index.html">Our Unity Projects</a>
+    <a class="brand" href="../index.html">BrickWorks Studio</a>
+
     <nav class="nav" aria-label="Primary">
-      <div class="menu" role="menubar">
+      <a class="nav-link cta" href="../contact.html">Contact us</a>
+
+      <button id="navToggle" class="btn btn-ghost hamburger" type="button"
+              aria-label="Open menu" aria-expanded="false" aria-controls="primaryMenu">
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <div class="menu" id="primaryMenu">
         <div class="menu-group" data-group="work">
-          <button class="nav-link menu-toggle" aria-expanded="false" aria-haspopup="true" role="menuitem">Work</button>
-          <div class="menu-panel" role="menu">
-            <a class="menu-link" href="index.html" role="menuitem">All projects</a>
-            <a class="menu-link" href="puzzle.html" role="menuitem">Puzzle</a>
-            <a class="menu-link" href="platformer.html" role="menuitem">Platformer</a>
+          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-work">Work</button>
+          <div class="menu-panel" id="panel-work">
+            <a class="menu-link" href="index.html">All projects</a>
+            <a class="menu-link" href="puzzle.html">Puzzle</a>
+            <a class="menu-link" href="platformer.html">Platformer</a>
           </div>
         </div>
+
         <div class="menu-group" data-group="studio">
-          <button class="nav-link menu-toggle" aria-expanded="false" aria-haspopup="true" role="menuitem">Studio</button>
-          <div class="menu-panel" role="menu">
-            <a class="menu-link" href="../about.html" role="menuitem">About</a>
-            <a class="menu-link" href="../team.html" role="menuitem">Team</a>
+          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-studio">Studio</button>
+          <div class="menu-panel" id="panel-studio">
+            <a class="menu-link" href="../about.html">About</a>
+            <a class="menu-link" href="../team.html">Team</a>
           </div>
         </div>
+
         <div class="menu-group" data-group="capabilities">
-          <button class="nav-link menu-toggle" aria-expanded="false" aria-haspopup="true" role="menuitem">Capabilities</button>
-          <div class="menu-panel" role="menu">
-            <a class="menu-link" href="../skills.html" role="menuitem">Skills</a>
+          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-capabilities">Capabilities</button>
+          <div class="menu-panel" id="panel-capabilities">
+            <a class="menu-link" href="../skills.html">Skills</a>
           </div>
         </div>
+
         <div class="menu-group" data-group="media">
-          <button class="nav-link menu-toggle" aria-expanded="false" aria-haspopup="true" role="menuitem">Media</button>
-          <div class="menu-panel" role="menu">
-            <a class="menu-link" href="../gallery.html" role="menuitem">Gallery</a>
-            <a class="menu-link" href="../videos.html" role="menuitem">Videos</a>
+          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-media">Media</button>
+          <div class="menu-panel" id="panel-media">
+            <a class="menu-link" href="../gallery.html">Gallery</a>
+            <a class="menu-link" href="../videos.html">Videos</a>
           </div>
         </div>
+
         <div class="menu-group" data-group="resources">
-          <button class="nav-link menu-toggle" aria-expanded="false" aria-haspopup="true" role="menuitem">Resources</button>
-          <div class="menu-panel" role="menu">
-            <a class="menu-link" href="../downloads.html" role="menuitem">Downloads</a>
+          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-resources">Resources</button>
+          <div class="menu-panel" id="panel-resources">
+            <a class="menu-link" href="../downloads.html">Downloads</a>
           </div>
         </div>
-        <a class="nav-link cta" href="../contact.html" role="menuitem">Contact us</a>
       </div>
     </nav>
   </div>
 </header>
+
 <main id="main" class="container page" role="main">
   <nav class="breadcrumb" aria-label="breadcrumb"><ol>
     <li><a href="../index.html">Home</a></li>
     <li aria-current="page">Work</li>
   </ol></nav>
 
+  <!-- existing page content kept as-is -->
   <h1>Work</h1>
   <p class="muted">Small Unity experiments built off-hours to learn mechanics and production workflows. Each project page links to a playable build, notes, and source code.</p>
 
@@ -94,7 +98,7 @@
           <p>Drag, snap, and rule-based sorting with light SFX/UI feedback.</p>
           <div class="card-actions">
             <a class="btn btn-light" href="puzzle.html">Details</a>
-            <a class="btn btn-ghost" href="../games/puzzle/index.html" target="_blank" rel="noopener">Play (WebGL)</a>
+            <a class="btn btn-ghost play-tag play-tag--webgl" href="../games/puzzle/index.html" target="_blank" rel="noopener">Play</a>
           </div>
         </div>
       </article>
@@ -106,7 +110,7 @@
           <p>Three levels: classic, dark, ice. Double jump, sliding, hazards, simple HUD.</p>
           <div class="card-actions">
             <a class="btn btn-light" href="platformer.html">Details</a>
-            <a class="btn btn-ghost" href="../games/platformer/index.html" target="_blank" rel="noopener">Play (WebGL)</a>
+            <a class="btn btn-ghost play-tag play-tag--webgl" href="../games/platformer/index.html" target="_blank" rel="noopener">Play</a>
           </div>
         </div>
       </article>
@@ -139,11 +143,12 @@
     <a class="btn" href="../contact.html">Contact</a>
   </section>
 </main>
+
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
-    <p>© <span id="year"></span> Personal Portfolio</p>
-    <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Cycle color theme">Theme: Indigo</button>
-    <button id="hcToggle" class="btn btn-ghost" type="button" aria-pressed="false" aria-label="Toggle high contrast">High contrast: Off</button>
+    <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Cycle color theme"></button>
+    <button id="hcToggle" class="btn btn-ghost" type="button" aria-pressed="false" aria-label="Toggle high contrast"></button>
+    <p>© <span id="year"></span> BrickWorks Studio</p>
   </div>
 </footer>
 

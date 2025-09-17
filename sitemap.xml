@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://pontusfalkman.github.io/test2.github.io/index.html</loc></url>
+  <url><loc>https://pontusfalkman.github.io/test2.github.io/games.html</loc></url>
   <url><loc>https://pontusfalkman.github.io/test2.github.io/about.html</loc></url>
   <url><loc>https://pontusfalkman.github.io/test2.github.io/media.html</loc></url>
   <url><loc>https://pontusfalkman.github.io/test2.github.io/contact.html</loc></url>
   
-  <url><loc>https://pontusfalkman.github.io/test2.github.io/projects/index.html</loc></url>
-
   <url><loc>https://pontusfalkman.github.io/test2.github.io/devlog/index.html</loc></url>
   <url><loc>https://pontusfalkman.github.io/test2.github.io/devlog/posts/2025-09-07-initial-setup.html</loc></url>
 

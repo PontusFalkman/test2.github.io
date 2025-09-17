@@ -63,14 +63,15 @@
           <li>Drag, snap, and slot validation.</li>
           <li>Sorting rules and win condition.</li>
           <li>Small UI/SFX feedback loops.</li>
+          <li>Interactive mini-games for each level.</li>
         </ul>
       </div>
       <div>
         <h3>Tech Notes</h3>
         <ul class="bullets">
-          <li>Unity 6 LTS, C#.</li>
+          <li>Unity 2022 LTS, C#.</li>
           <li>Script separation: input, slot logic, game state.</li>
-          <li>Simple profiling and GC-aware updates.</li>
+          <li>Settings manager seperate to game session.</li>
         </ul>
       </div>
     </div>
@@ -79,12 +80,12 @@
   <hr style="border-color: var(--border); margin: 32px 0;">
 
   <section aria-labelledby="platformer-heading">
-    <h2 id="platformer-heading">2D Platformer</h2>
+    <h2 id="platformer-heading">2D Stealth Platformer</h2>
     <div class="grid" style="grid-template-columns:1fr 1fr; gap:16px; margin-top:16px;">
       <div class="card"><img src="images/platformer_hero.jpg" alt="Platformer screenshot" width="1200" height="675"></div>
       <div class="card"><div class="card-body">
         <h3>Overview</h3>
-        <p>Three levels: classic, dark, and ice with slide mechanics. Double jump, hazards, and door-to-finish.</p>
+        <p>Darkness and light systems. fluid stealth mechanics, hazards.</p>
         <div class="card-actions">
           <a class="btn play-tag play-tag--webgl" href="games/platformer/index.html" target="_blank" rel="noopener">Play</a>
           <a class="btn btn-light" href="https://github.com/USER/REPO/releases/download/v1.0/Platformer_win64_v1.0.zip" target="_blank" rel="noopener">Download</a>
@@ -97,7 +98,7 @@
       <div>
         <h3>Highlights</h3>
         <ul class="bullets">
-          <li>Double jump, sliding on ice, instant-death hazards.</li>
+          <li>Noise and visibility mechanics, instant-death hazards, engaging stealth mechanics</li>
           <li>Camera follow, checkpoints, level transitions.</li>
           <li>Simple HUD and audio settings.</li>
         </ul>
@@ -107,7 +108,6 @@
         <ul class="bullets">
           <li>Unity 6 LTS, C#, Input System.</li>
           <li>GameManager for lives, score, progression.</li>
-          <li>Pixel-perfect camera and tuned physics.</li>
         </ul>
       </div>
     </div>

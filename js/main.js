@@ -67,16 +67,28 @@ function initNavEnhancements() {
   // Initialize state: all closed
   closeAll();
 
-  // Mark current page link
-  const current = location.pathname.replace(/index\.html$/, '');
-  menu.querySelectorAll('a[href]').forEach(a => {
-    try {
-      const url = new URL(a.getAttribute('href'), location.origin);
-      if (url.pathname.replace(/index\.html$/, '') === current) {
-        a.setAttribute('aria-current', 'page');
+  // --- UPDATE: More robust logic for marking the current page link ---
+  // This now correctly matches directory paths and also expands the parent dropdown menu.
+  try {
+    const currentPath = location.pathname.endsWith('/') ? location.pathname : location.pathname.replace(/[^/]*$/, '');
+    menu.querySelectorAll('a[href]').forEach(a => {
+      const linkPath = a.pathname.endsWith('/') ? a.pathname : a.pathname.replace(/[^/]*$/, '');
+      if (linkPath === currentPath) {
+          a.setAttribute('aria-current', 'page');
+          // Also expand parent menu if inside a dropdown for better UX
+          const parentGroup = a.closest('.menu-group');
+          if(parentGroup) {
+              const toggleBtn = parentGroup.querySelector('.menu-toggle');
+              if (toggleBtn) {
+                toggleBtn.setAttribute('aria-expanded', 'true');
+                parentGroup.classList.add('open'); // Keep it open on page load
+              }
+          }
       }
-    } catch {}
-  });
+    });
+  } catch(e) {
+    console.error("Failed to set active navigation link.", e);
+  }
 }
 
 // A module for initializing the mobile hamburger menu.
@@ -235,6 +247,3 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initTheme();
 });
-
-// Optional anti-flash snippet for <head>:
-// <script>try{const hc=localStorage.getItem("highContrast")==="1";const base=localStorage.getItem("theme")||"indigo";document.documentElement.setAttribute("data-theme",hc?"high-contrast":base);}catch(e){}</script>

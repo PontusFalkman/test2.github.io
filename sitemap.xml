@@ -2,16 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://pontusfalkman.github.io/test2.github.io/index.html</loc></url>
   <url><loc>https://pontusfalkman.github.io/test2.github.io/about.html</loc></url>
+  <url><loc>https://pontusfalkman.github.io/test2.github.io/media.html</loc></url>
   <url><loc>https://pontusfalkman.github.io/test2.github.io/contact.html</loc></url>
-  <url><loc>https://pontusfalkman.github.io/test2.github.io/downloads.html</loc></url>
-  <url><loc>https://pontusfalkman.github.io/test2.github.io/gallery.html</loc></url>
-  <url><loc>https://pontusfalkman.github.io/test2.github.io/skills.html</loc></url>
-  <url><loc>https://pontusfalkman.github.io/test2.github.io/team.html</loc></url>
-  <url><loc>https://pontusfalkman.github.io/test2.github.io/videos.html</loc></url>
-
+  
   <url><loc>https://pontusfalkman.github.io/test2.github.io/projects/index.html</loc></url>
-  <url><loc>https://pontusfalkman.github.io/test2.github.io/projects/puzzle.html</loc></url>
-  <url><loc>https://pontusfalkman.github.io/test2.github.io/projects/platformer.html</loc></url>
+
+  <url><loc>https://pontusfalkman.github.io/test2.github.io/devlog/index.html</loc></url>
+  <url><loc>https://pontusfalkman.github.io/test2.github.io/devlog/posts/2025-09-07-initial-setup.html</loc></url>
 
   <url><loc>https://pontusfalkman.github.io/test2.github.io/games/puzzle/index.html</loc></url>
   <url><loc>https://pontusfalkman.github.io/test2.github.io/games/platformer/index.html</loc></url>

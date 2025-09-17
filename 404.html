@@ -1,86 +1,54 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Not found — BrickWorks Studio</title>
+  <title>Not Found — BrickWorks Studio</title>
+  
+  <script>try{const hc=localStorage.getItem("highContrast")==="1";const base=localStorage.getItem("theme")||"indigo";document.documentElement.setAttribute("data-theme",hc?"high-contrast":base);}catch(e){}</script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <link rel="canonical" href="https://pontusfalkman.github.io/test2.github.io/404.html">
   <meta name="description" content="The page you requested could not be found.">
-  <meta property="og:title" content="Not found">
-  <meta property="og:description" content="The page you requested could not be found.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pontusfalkman.github.io/test2.github.io/404.html">
-  <meta property="og:image" content="https://pontusfalkman.github.io/test2.github.io/images/systems_thumb.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Not found">
-  <meta name="twitter:description" content="The page you requested could not be found.">
-  <meta name="twitter:image" content="https://pontusfalkman.github.io/test2.github.io/images/systems_thumb.jpg">
 
   <link rel="preload" as="style" href="css/style.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/style.css"></noscript>
-</head><body>
+</head>
+<body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" role="banner">
+<header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html">BrickWorks Studio</a>
-
     <nav class="nav" aria-label="Primary">
       <a class="nav-link cta" href="contact.html">Contact us</a>
-      <button id="navToggle" class="btn btn-ghost hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryMenu"><span class="visually-hidden">Menu</span></button>
-
+      <button id="navToggle" class="btn btn-ghost hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryMenu">
+        <span class="visually-hidden">Menu</span>
+      </button>
       <div class="menu" id="primaryMenu">
-        <div class="menu-group" data-group="work">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-work">Work</button>
-          <div class="menu-panel" id="panel-work">
-            <a class="menu-link" href="projects/index.html">All projects</a>
-            <a class="menu-link" href="projects/puzzle.html">Puzzle</a>
-            <a class="menu-link" href="projects/platformer.html">Platformer</a>
-          </div>
-        </div>
-        <div class="menu-group" data-group="studio">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-studio">Studio</button>
-          <div class="menu-panel" id="panel-studio">
-            <a class="menu-link" href="about.html">About</a>
-            <a class="menu-link" href="team.html">Team</a>
-          </div>
-        </div>
-        <div class="menu-group" data-group="capabilities">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-capabilities">Capabilities</button>
-          <div class="menu-panel" id="panel-capabilities">
-            <a class="menu-link" href="skills.html">Skills</a>
-          </div>
-        </div>
-        <div class="menu-group" data-group="media">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-media">Media</button>
-          <div class="menu-panel" id="panel-media">
-            <a class="menu-link" href="gallery.html">Gallery</a>
-            <a class="menu-link" href="videos.html">Videos</a>
-          </div>
-        </div>
-        <div class="menu-group" data-group="resources">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-resources">Resources</button>
-          <div class="menu-panel" id="panel-resources">
-            <a class="menu-link" href="downloads.html">Downloads</a>
-          </div>
-        </div>
+        <a class="nav-link" href="projects/index.html">Games</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="media.html">Media</a>
+        <a class="nav-link" href="devlog/index.html">Devlog</a>
       </div>
     </nav>
   </div>
 </header>
 
-<main class="container page" style="text-align:center" id="main" role="main">
+<main class="container page" style="text-align:center" id="main">
   <h1>404 — Page not found</h1>
   <p class="muted">This path doesn’t exist. It may have moved.</p>
   <p><a class="btn" href="index.html">Back to Home</a></p>
 </main>
 
-<footer class="site-footer" role="contentinfo">
+<footer class="site-footer">
   <div class="container footer-inner">
-    <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Cycle color theme"></button>
-    <button id="hcToggle" class="btn btn-ghost" type="button" aria-pressed="false" aria-label="Toggle high contrast"></button>
+    <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Toggle light and dark theme"></button>
+    <button id="hcToggle" class="btn btn-ghost" type="button" aria-pressed="false" aria-label="Enable high contrast mode"></button>
     <p>© <span id="year"></span> BrickWorks Studio</p>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
-</body></html>
+<script src="js/main.js" defer></script>
+</body>
+</html>

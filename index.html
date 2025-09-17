@@ -3,94 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio — Personal Unity Projects</title>
+  <title>BrickWorks Studio — Unity Game Development Portfolio</title>
+  
+  <script>try{const hc=localStorage.getItem("highContrast")==="1";const base=localStorage.getItem("theme")||"indigo";document.documentElement.setAttribute("data-theme",hc?"high-contrast":base);}catch(e){}</script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <link rel="canonical" href="https://pontusfalkman.github.io/test2.github.io/">
-  <meta name="description" content="Small Unity games and prototypes built in our free time. Explore featured projects, videos, and downloads.">
-  <meta property="og:title" content="Unity Portfolio — Hobby Projects">
-  <meta property="og:description" content="Small Unity games and prototypes built in our free time. Explore featured projects, videos, and downloads.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pontusfalkman.github.io/test2.github.io/">
-  <meta property="og:image" content="https://pontusfalkman.github.io/test2.github.io/images/puzzle_hero.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Unity Portfolio — Hobby Projects">
-  <meta name="twitter:description" content="Small Unity games and prototypes built in our free time. Explore featured projects, videos, and downloads.">
-  <meta name="twitter:image" content="https://pontusfalkman.github.io/test2.github.io/images/puzzle_hero.jpg">
+  <meta name="description" content="Welcome to BrickWorks Studio. We are a two-person team building small, sharp Unity games. Explore our prototypes, watch demos, and download our builds.">
+  
   <link rel="preload" as="style" href="css/style.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/style.css"></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" role="banner">
+<header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html">BrickWorks Studio</a>
 
-    <!-- Primary navigation with drawer + hamburger -->
     <nav class="nav" aria-label="Primary">
-      <!-- Keep CTA visible on mobile -->
       <a class="nav-link cta" href="contact.html">Contact us</a>
-
-      <!-- Hamburger button: icon from CSS -->
-      <button id="navToggle" class="btn btn-ghost hamburger" type="button"
-              aria-label="Open menu" aria-expanded="false" aria-controls="primaryMenu">
+      <button id="navToggle" class="btn btn-ghost hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryMenu">
         <span class="visually-hidden">Menu</span>
       </button>
 
-      <!-- Drawer menu -->
       <div class="menu" id="primaryMenu">
-        <div class="menu-group" data-group="work">
-          <button class="nav-link menu-toggle" type="button"
-                  aria-expanded="false" aria-controls="panel-work">Work</button>
-          <div class="menu-panel" id="panel-work">
-            <a class="menu-link" href="projects/index.html">All projects</a>
-            <a class="menu-link" href="projects/puzzle.html">Puzzle</a>
-            <a class="menu-link" href="projects/platformer.html">Platformer</a>
-          </div>
-        </div>
-
-        <div class="menu-group" data-group="studio">
-          <button class="nav-link menu-toggle" type="button"
-                  aria-expanded="false" aria-controls="panel-studio">Studio</button>
-          <div class="menu-panel" id="panel-studio">
-            <a class="menu-link" href="about.html">About</a>
-            <a class="menu-link" href="team.html">Team</a>
-          </div>
-        </div>
-
-        <div class="menu-group" data-group="capabilities">
-          <button class="nav-link menu-toggle" type="button"
-                  aria-expanded="false" aria-controls="panel-capabilities">Capabilities</button>
-          <div class="menu-panel" id="panel-capabilities">
-            <a class="menu-link" href="skills.html">Skills</a>
-          </div>
-        </div>
-
-        <div class="menu-group" data-group="media">
-          <button class="nav-link menu-toggle" type="button"
-                  aria-expanded="false" aria-controls="panel-media">Media</button>
-          <div class="menu-panel" id="panel-media">
-            <a class="menu-link" href="gallery.html">Gallery</a>
-            <a class="menu-link" href="videos.html">Videos</a>
-          </div>
-        </div>
-
-        <div class="menu-group" data-group="devlog">
-          <button class="nav-link menu-toggle" type="button"
-                  aria-expanded="false" aria-controls="panel-devlog">Devlog</button>
-          <div class="menu-panel" id="panel-devlog">
-            <a class="menu-link" href="devlog/index.html">All posts</a>
-          </div>
-        </div>
-
-        <div class="menu-group" data-group="resources">
-          <button class="nav-link menu-toggle" type="button"
-                  aria-expanded="false" aria-controls="panel-resources">Resources</button>
-          <div class="menu-panel" id="panel-resources">
-            <a class="menu-link" href="downloads.html">Downloads</a>
-          </div>
-        </div>
+        <a class="nav-link" href="projects/index.html">Games</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="media.html">Media</a>
+        <a class="nav-link" href="devlog/index.html">Devlog</a>
       </div>
     </nav>
   </div>
@@ -104,41 +46,39 @@
   </div>
 </section>
 
-<main class="container" id="main" role="main">
-  <section id="projects" class="projects">
-    <h2>Featured Projects</h2>
+<main class="container" id="main">
+  <section id="projects" class="projects" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Featured Projects</h2>
     <div class="grid">
       <article class="card">
-        <img src="images/puzzle_hero.jpg" alt="Puzzle prototype screenshot" width="1200" height="675">
+        <img src="images/puzzle_hero.jpg" alt="A screenshot of the Unity puzzle game prototype showing logical gate components on a grid." width="1200" height="675">
         <div class="card-body">
           <h3>Puzzle Prototype</h3>
           <p>Drag-and-drop logic with snap validation and simple SFX.</p>
           <div class="card-actions">
-            <a class="btn btn-light" href="projects/puzzle.html">Details</a>
-            <a class="btn btn-ghost play-tag play-tag--webgl" href="games/puzzle/index.html" target="_blank" rel="noopener">Play</a>
+            <a class="btn btn-light" href="projects/index.html">Details & Downloads</a>
           </div>
         </div>
       </article>
 
       <article class="card">
-        <img src="images/platformer_hero.jpg" alt="2D platformer screenshot" width="1200" height="675">
+        <img src="images/platformer_hero.jpg" alt="The player character sliding down an icy slope in the 2D platformer game." width="1200" height="675">
         <div class="card-body">
           <h3>2D Platformer</h3>
           <p>Classic, dark, and ice levels. Double jump and sliding.</p>
           <div class="card-actions">
-            <a class="btn btn-light" href="projects/platformer.html">Details</a>
-            <a class="btn btn-ghost play-tag play-tag--webgl" href="games/platformer/index.html" target="_blank" rel="noopener">Play</a>
+            <a class="btn btn-light" href="projects/index.html">Details & Downloads</a>
           </div>
         </div>
       </article>
 
       <article class="card">
-        <img src="images/systems_thumb.jpg" alt="Systems demos" width="1200" height="675">
+        <img src="images/systems_thumb.jpg" alt="A diagram showing UI and save system logic." width="1200" height="675">
         <div class="card-body">
           <h3>Systems Demos</h3>
           <p>UI, input, save/load, and small optimization passes.</p>
           <div class="card-actions">
-            <a class="btn btn-light" href="projects/index.html">All projects</a>
+            <a class="btn btn-light" href="projects/index.html">View Projects</a>
           </div>
         </div>
       </article>
@@ -152,14 +92,14 @@
   </section>
 </main>
 
-<footer class="site-footer" role="contentinfo">
+<footer class="site-footer">
   <div class="container footer-inner">
-    <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Cycle color theme"></button>
-    <button id="hcToggle" class="btn btn-ghost" type="button" aria-pressed="false" aria-label="Toggle high contrast"></button>
+    <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Toggle light and dark theme"></button>
+    <button id="hcToggle" class="btn btn-ghost" type="button" aria-pressed="false" aria-label="Enable high contrast mode"></button>
     <p>© <span id="year"></span> BrickWorks Studio</p>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>

@@ -71,7 +71,10 @@
   }
   a{color:var(--link); text-decoration:none}
   a:hover{text-decoration:underline; color:var(--link-hover)}
-  :focus{outline:var(--focus-w) solid var(--focus); outline-offset:2px}
+  
+  :focus-visible{outline:var(--focus-w) solid var(--focus); outline-offset:2px}
+  :focus:not(:focus-visible){outline:none}
+
   .visually-hidden{position:absolute!important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap}
   
   /* Skip link */
@@ -87,29 +90,11 @@
   .brand{font-weight:800; color:var(--text); line-height:1}
   .nav{display:flex; align-items:center; gap:var(--gap)}
   .nav-link{color:var(--muted); padding:0 12px; border-radius:var(--radius-sm); min-height:var(--ctl); min-width:var(--ctl); display:inline-flex; align-items:center; justify-content:center}
-  .nav-link:hover,.nav-link.active{color:var(--text); background:var(--surface-2)}
+  .nav-link:hover,.nav-link.active, .nav-link[aria-current="page"]{color:var(--text); background:var(--surface-2)}
   
   .menu{display:flex; align-items:center; gap:var(--gap)}
-  .menu-group{position:relative}
-  .menu-toggle{
-    background:transparent; border:0; cursor:pointer; color:var(--muted);
-    min-height:var(--ctl); min-width:var(--ctl); position:relative; padding-right:1.25rem;
-    display:inline-flex; align-items:center; justify-content:center;
-  }
-  .menu-toggle:focus{outline:var(--focus-w) solid var(--focus); outline-offset:2px; border-radius:var(--radius-sm)}
-  .menu-toggle::after{
-    content:"▾"; display:inline-block; margin-left:.4rem; transition:transform var(--transition);
-  }
-  .menu-group.open .menu-toggle::after,
-  .menu-toggle[aria-expanded="true"]::after{ transform:rotate(180deg); }
-  .menu-panel{
-    position:absolute; top:calc(100% + 8px); left:0; display:none; min-width:220px; padding:8px;
-    background:var(--surface-2); border:var(--border-w) solid var(--border); border-radius:var(--radius);
-    box-shadow:var(--shadow-lg); z-index:100
-  }
-  .menu-group[aria-expanded="true"] .menu-panel,.menu-group.open .menu-panel{display:block}
-  .menu-link{display:block; padding:8px 10px; border-radius:var(--radius-sm); color:var(--text); white-space:nowrap; min-height:var(--ctl)}
-  .menu-link:hover,.menu-link:focus{background:var(--hover-overlay); text-decoration:none}
+  
+  /* CLEANUP: Removed .menu-group, .menu-toggle, and .menu-panel styles as they are no longer used. */
   
   /* CTA */
   .nav .cta{
@@ -159,8 +144,6 @@
   /* Suffix for Play buttons */
   .play-tag::after{ content:""; opacity:.85; }
   .play-tag--webgl::after{ content:" (WebGL)"; }
-  /* .play-tag--steam::after{ content:" (Steam)"; }
-     .play-tag--itch::after{ content:" (itch.io)"; } */
   
   /* Callout */
   .cta{margin:40px 0 60px; padding:26px; background:var(--surface); border:var(--border-w) solid var(--border); border-radius:var(--radius); text-align:center}
@@ -180,7 +163,6 @@
   /* Footer */
   .site-footer{border-top:var(--border-w) solid var(--border); background:var(--surface); margin-top:20px}
   .footer-inner{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0}
-  .social{display:flex; gap:14px}
   
   /* Breadcrumbs */
   .breadcrumb ol{list-style:none; padding:0; margin:0 0 12px; display:flex; gap:8px; flex-wrap:wrap}
@@ -194,25 +176,34 @@
   .hamburger{ display:none } /* hidden on desktop */
   
   @media (max-width: 700px){
-    .header-inner{flex-direction:column; gap:8px}
+    .header-inner{gap:8px} /* Simplified from flex-direction */
     .grid{grid-template-columns:1fr}
     .hero{padding:40px 0}
   
-    .nav { align-items:center; gap:10px }
+    .nav { align-items:center; gap:10px; width: 100%; justify-content: space-between; }
+    .brand { flex-grow: 1; } /* Allow brand to take space */
+    .nav .cta { margin-left:0 } /* Remove auto margin */
+    
+    /* UPDATE: Styles for the mobile slide-out menu */
     .menu { 
       position: fixed; top: 0; right: 0; bottom: 0;
-      width: min(400px, 75vw);              /* adjust width here */
-      background: var(--surface); border-left: var(--border-w) solid var(--border);
+      width: min(400px, 75vw);
+      background: var(--surface);
+      border-inline-start: var(--border-w) solid var(--border);
       padding: 16px; 
-      transform: translateX(100%); transition: transform var(--transition);
-      display:block; overflow:auto; z-index:1200; 
+      transform: translateX(100%);
+      transition: transform var(--transition);
+      z-index: 1200; 
+      
+      /* New styles for vertical alignment */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Vertically centers the links */
+      gap: 12px; /* Adds space between links */
+      align-items: center; /* Horizontally centers the text */
     }
-    .menu .menu-group, .menu .menu-link, .menu .menu-toggle { display:block }
-    .menu .menu-panel { position:static; display:block; padding:0; box-shadow:none; border:0; background:transparent }
     
-    .nav .cta { margin-left:auto }
     .hamburger{ display:inline-flex } 
-    .header-inner .menu { position: fixed } 
   
     body.nav-open .menu { transform: translateX(0) }
     body.nav-open::after{ content:""; position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:1100; }
@@ -234,4 +225,3 @@
     .card, .site-header, .site-footer { border-color: ButtonText; }
     a { color: LinkText; }
   }
-  

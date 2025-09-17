@@ -1,108 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — Personal Unity Projects</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — BrickWorks Studio</title>
+  
+  <script>try{const hc=localStorage.getItem("highContrast")==="1";const base=localStorage.getItem("theme")||"indigo";document.documentElement.setAttribute("data-theme",hc?"high-contrast":base);}catch(e){}</script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <link rel="canonical" href="https://pontusfalkman.github.io/test2.github.io/about.html">
-  <meta name="description" content="Who we are and how we build compact Unity projects for learning and practice.">
-  <meta property="og:title" content="About — Unity Hobby Projects">
-  <meta property="og:description" content="Who we are and how we build compact Unity projects for learning and practice.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pontusfalkman.github.io/test2.github.io/about.html">
-  <meta property="og:image" content="https://pontusfalkman.github.io/test2.github.io/images/systems_thumb.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About — Unity Hobby Projects">
-  <meta name="twitter:description" content="Who we are and how we build compact Unity projects for learning and practice.">
-  <meta name="twitter:image" content="https://pontusfalkman.github.io/test2.github.io/images/systems_thumb.jpg">
-
+  <meta name="description" content="Learn about the team, skills, and technology behind BrickWorks Studio's Unity projects.">
+  
   <link rel="preload" as="style" href="css/style.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/style.css"></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" role="banner">
+<header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html">BrickWorks Studio</a>
-
     <nav class="nav" aria-label="Primary">
       <a class="nav-link cta" href="contact.html">Contact us</a>
-
-      <button id="navToggle" class="btn btn-ghost hamburger" type="button"
-              aria-label="Open menu" aria-expanded="false" aria-controls="primaryMenu">
+      <button id="navToggle" class="btn btn-ghost hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryMenu">
         <span class="visually-hidden">Menu</span>
       </button>
-
       <div class="menu" id="primaryMenu">
-        <div class="menu-group" data-group="work">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-work">Work</button>
-          <div class="menu-panel" id="panel-work">
-            <a class="menu-link" href="projects/index.html">All projects</a>
-            <a class="menu-link" href="projects/puzzle.html">Puzzle</a>
-            <a class="menu-link" href="projects/platformer.html">Platformer</a>
-          </div>
-        </div>
-        <div class="menu-group" data-group="studio">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-studio">Studio</button>
-          <div class="menu-panel" id="panel-studio">
-            <a class="menu-link" href="about.html">About</a>
-            <a class="menu-link" href="team.html">Team</a>
-          </div>
-        </div>
-        <div class="menu-group" data-group="capabilities">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-capabilities">Capabilities</button>
-          <div class="menu-panel" id="panel-capabilities">
-            <a class="menu-link" href="skills.html">Skills</a>
-          </div>
-        </div>
-        <div class="menu-group" data-group="media">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-media">Media</button>
-          <div class="menu-panel" id="panel-media">
-            <a class="menu-link" href="gallery.html">Gallery</a>
-            <a class="menu-link" href="videos.html">Videos</a>
-          </div>
-        </div>
-        <div class="menu-group" data-group="resources">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-resources">Resources</button>
-          <div class="menu-panel" id="panel-resources">
-            <a class="menu-link" href="downloads.html">Downloads</a>
-          </div>
-        </div>
+        <a class="nav-link" href="projects/index.html">Games</a>
+        <a class="nav-link" href="about.html" aria-current="page">About</a>
+        <a class="nav-link" href="media.html">Media</a>
+        <a class="nav-link" href="devlog/index.html">Devlog</a>
       </div>
     </nav>
   </div>
 </header>
 
-<main class="container page" id="main" role="main">
-  <h1>About</h1>
+<main class="container page" id="main">
+  <h1>About BrickWorks Studio</h1>
   <p>We build small Unity projects in our spare time to practice engineering and design. This site records what we learn as we finish compact scopes.</p>
 
-  <div class="grid" style="grid-template-columns:1fr 1fr; gap:16px;">
-    <section class="card"><div class="card-body">
-      <h3>Pontus Falkman</h3>
-      <p>Co-founder. Technical background.</p>
-      <ul class="bullets">
-        <li>Unity 2D/3D, C#, gameplay systems</li>
-        <li>UI, save/load</li>
-        <li>Project Management</li>
-      </ul>
-    </div></section>
-
-    <section class="card"><div class="card-body">
-      <h3>Martin Havsbro</h3>
-      <p>Co-founder. Creative background.</p>
-      <ul class="bullets">
-        <li>Audio & visual polish</li>
-        <li>Assets creation</li>
-        <li>Level design</li>
-      </ul>
-    </div></section>
-  </div>
+  <section style="margin-top:24px">
+    <h2>Meet the Team</h2>
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:16px">
+      <div class="card"><div class="card-body">
+        <h3>Pontus Falkman</h3>
+        <p>Engineering focus. Gameplay systems, input, save/load, UI wiring.</p>
+        <ul class="bullets"><li>Puzzle: systems + UI</li><li>Platformer: physics + camera</li></ul>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>Martin Havsbro</h3>
+        <p>Design/audio focus. Levels, pacing, SFX, capture, and polish.</p>
+        <ul class="bullets"><li>Puzzle: layout + SFX</li><li>Platformer: level design + tuning</li></ul>
+      </div></div>
+    </div>
+  </section>
 
   <section style="margin-top:24px">
-    <h2>Stack</h2>
+    <h2>Our Capabilities</h2>
+    <div class="grid">
+      <div class="card"><div class="card-body">
+        <h3>Eng/Systems</h3>
+        <ul class="bullets">
+          <li>Unity 6 LTS, C#</li><li>Input System, UI Toolkit/UGUI</li><li>Save/load, state machines, GameManager</li><li>Basic profiling, physics tuning</li>
+        </ul>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>Design/Content</h3>
+        <ul class="bullets">
+          <li>Level layout, encounter pacing</li><li>2D art polish, simple audio</li><li>Camera work, HUD polish</li>
+        </ul>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>Workflow</h3>
+        <ul class="bullets">
+          <li>Git/GitHub, Releases, Pages (WebGL)</li><li>Issue tracking via GitHub</li><li>Capture and short demo videos</li>
+        </ul>
+      </div></div>
+    </div>
+  </section>
+  
+  <section style="margin-top:24px">
+    <h2>Our Tech Stack</h2>
     <ul class="bullets">
       <li>Unity 6 LTS, C#, Git/GitHub</li>
       <li>WebGL builds on GitHub Pages</li>
@@ -112,14 +91,14 @@
   </section>
 </main>
 
-<footer class="site-footer" role="contentinfo">
+<footer class="site-footer">
   <div class="container footer-inner">
-    <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Cycle color theme"></button>
-    <button id="hcToggle" class="btn btn-ghost" type="button" aria-pressed="false" aria-label="Toggle high contrast"></button>
+    <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Toggle light and dark theme"></button>
+    <button id="hcToggle" class="btn btn-ghost" type="button" aria-pressed="false" aria-label="Enable high contrast mode"></button>
     <p>© <span id="year"></span> BrickWorks Studio</p>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>

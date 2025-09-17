@@ -2,149 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Work — Unity Projects</title>
-
+  <title>Games — BrickWorks Studio</title>
+  
+  <script>try{const hc=localStorage.getItem("highContrast")==="1";const base=localStorage.getItem("theme")||"indigo";document.documentElement.setAttribute("data-theme",hc?"high-contrast":base);}catch(e){}</script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <link rel="preload" as="style" href="../css/style.css" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../css/style.css"></noscript>
+  <link rel="canonical" href="https://pontusfalkman.github.io/test2.github.io/projects/index.html">
+  <meta name="description" content="Explore, play, and download our Unity game prototypes. Get details, tech notes, and source code for the Puzzle Prototype and 2D Platformer.">
+  
+  <link rel="preload" as="style" href="../css/style.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="../css/style.css"></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" role="banner">
+<header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="../index.html">BrickWorks Studio</a>
-
     <nav class="nav" aria-label="Primary">
       <a class="nav-link cta" href="../contact.html">Contact us</a>
-
-      <button id="navToggle" class="btn btn-ghost hamburger" type="button"
-              aria-label="Open menu" aria-expanded="false" aria-controls="primaryMenu">
+      <button id="navToggle" class="btn btn-ghost hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryMenu">
         <span class="visually-hidden">Menu</span>
       </button>
-
       <div class="menu" id="primaryMenu">
-        <div class="menu-group" data-group="work">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-work">Work</button>
-          <div class="menu-panel" id="panel-work">
-            <a class="menu-link" href="index.html">All projects</a>
-            <a class="menu-link" href="puzzle.html">Puzzle</a>
-            <a class="menu-link" href="platformer.html">Platformer</a>
-          </div>
-        </div>
-
-        <div class="menu-group" data-group="studio">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-studio">Studio</button>
-          <div class="menu-panel" id="panel-studio">
-            <a class="menu-link" href="../about.html">About</a>
-            <a class="menu-link" href="../team.html">Team</a>
-          </div>
-        </div>
-
-        <div class="menu-group" data-group="capabilities">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-capabilities">Capabilities</button>
-          <div class="menu-panel" id="panel-capabilities">
-            <a class="menu-link" href="../skills.html">Skills</a>
-          </div>
-        </div>
-
-        <div class="menu-group" data-group="media">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-media">Media</button>
-          <div class="menu-panel" id="panel-media">
-            <a class="menu-link" href="../gallery.html">Gallery</a>
-            <a class="menu-link" href="../videos.html">Videos</a>
-          </div>
-        </div>
-
-        <div class="menu-group" data-group="resources">
-          <button class="nav-link menu-toggle" type="button" aria-expanded="false" aria-controls="panel-resources">Resources</button>
-          <div class="menu-panel" id="panel-resources">
-            <a class="menu-link" href="../downloads.html">Downloads</a>
-          </div>
-        </div>
+        <a class="nav-link" href="index.html" aria-current="page">Games</a>
+        <a class="nav-link" href="../about.html">About</a>
+        <a class="nav-link" href="../media.html">Media</a>
+        <a class="nav-link" href="../devlog/index.html">Devlog</a>
       </div>
     </nav>
   </div>
 </header>
 
-<main id="main" class="container page" role="main">
-  <nav class="breadcrumb" aria-label="breadcrumb"><ol>
-    <li><a href="../index.html">Home</a></li>
-    <li aria-current="page">Work</li>
-  </ol></nav>
+<main id="main" class="container page">
+  <h1>Games</h1>
+  <p class="muted">Small Unity experiments built off-hours to learn mechanics and production workflows. Each project links to a playable build, notes, and source code.</p>
 
-  <!-- existing page content kept as-is -->
-  <h1>Work</h1>
-  <p class="muted">Small Unity experiments built off-hours to learn mechanics and production workflows. Each project page links to a playable build, notes, and source code.</p>
+  <hr style="border-color: var(--border); margin: 32px 0;">
 
-  <section aria-labelledby="find">
-    <h2 id="find">What you’ll find</h2>
-    <ul class="bullets">
-      <li>Mechanics: drag-and-drop logic, hazards, camera follow, movement tuning.</li>
-      <li>Systems: input, save/load, UI flows, and small performance passes.</li>
-      <li>Builds: WebGL for quick demos and downloadable zips on GitHub Releases.</li>
-    </ul>
-  </section>
-
-  <section class="projects" aria-labelledby="projects-list">
-    <h2 id="projects-list">Projects</h2>
-    <div class="grid">
-      <article class="card">
-        <img src="../images/puzzle_hero.jpg" alt="Puzzle prototype screenshot" width="1200" height="675" loading="lazy" decoding="async">
-        <div class="card-body">
-          <h3>Puzzle Prototype</h3>
-          <p>Drag, snap, and rule-based sorting with light SFX/UI feedback.</p>
-          <div class="card-actions">
-            <a class="btn btn-light" href="puzzle.html">Details</a>
-            <a class="btn btn-ghost play-tag play-tag--webgl" href="../games/puzzle/index.html" target="_blank" rel="noopener">Play</a>
-          </div>
+  <section aria-labelledby="puzzle-heading">
+    <h2 id="puzzle-heading">Puzzle Prototype</h2>
+    <div class="grid" style="grid-template-columns:1fr 1fr; gap:16px; margin-top:16px;">
+      <div class="card"><img src="../images/puzzle_hero.jpg" alt="Puzzle screenshot" width="1200" height="675"></div>
+      <div class="card"><div class="card-body">
+        <h3>Overview</h3>
+        <p>Drag-and-drop slots with snap validation and rule-based sorting. Light audio feedback and simple UI transitions.</p>
+        <div class="card-actions">
+          <a class="btn play-tag play-tag--webgl" href="../games/puzzle/index.html" target="_blank" rel="noopener">Play</a>
+          <a class="btn btn-light" href="https://github.com/USER/REPO/releases/download/v0.9/Puzzle_win64_v0.9.zip" target="_blank" rel="noopener">Download</a>
+          <a class="btn btn-ghost" href="https://github.com/USER/PuzzleRepo" target="_blank" rel="noopener">Repo</a>
         </div>
-      </article>
+      </div></div>
+    </div>
 
-      <article class="card">
-        <img src="../images/platformer_hero.jpg" alt="2D platformer screenshot" width="1200" height="675" loading="lazy" decoding="async">
-        <div class="card-body">
-          <h3>2D Platformer</h3>
-          <p>Three levels: classic, dark, ice. Double jump, sliding, hazards, simple HUD.</p>
-          <div class="card-actions">
-            <a class="btn btn-light" href="platformer.html">Details</a>
-            <a class="btn btn-ghost play-tag play-tag--webgl" href="../games/platformer/index.html" target="_blank" rel="noopener">Play</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card">
-        <img src="../images/systems_thumb.jpg" alt="Systems demos thumbnail" width="1200" height="675" loading="lazy" decoding="async">
-        <div class="card-body">
-          <h3>Systems Demos</h3>
-          <p>UI, input, save/load, and lightweight profiling notes.</p>
-          <div class="card-actions">
-            <a class="btn btn-ghost" href="../downloads.html">Downloads</a>
-          </div>
-        </div>
-      </article>
+    <div class="grid" style="grid-template-columns:1fr 1fr; gap:16px; margin-top:16px;">
+      <div>
+        <h3>Highlights</h3>
+        <ul class="bullets">
+          <li>Drag, snap, and slot validation.</li>
+          <li>Sorting rules and win condition.</li>
+          <li>Small UI/SFX feedback loops.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Tech Notes</h3>
+        <ul class="bullets">
+          <li>Unity 6 LTS, C#.</li>
+          <li>Script separation: input, slot logic, game state.</li>
+          <li>Simple profiling and GC-aware updates.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section aria-labelledby="stack">
-    <h2 id="stack">Tech & tools</h2>
-    <ul class="bullets">
-      <li>Unity 6 LTS · C# · Input System</li>
-      <li>WebGL builds for quick sharing</li>
-      <li>GitHub Releases for versioned zips</li>
-    </ul>
-  </section>
+  <hr style="border-color: var(--border); margin: 32px 0;">
 
-  <section class="cta" aria-labelledby="cta-contact">
-    <h2 id="cta-contact">Looking for something specific?</h2>
-    <p>Send feedback or ideas. Happy to iterate.</p>
-    <a class="btn" href="../contact.html">Contact</a>
+  <section aria-labelledby="platformer-heading">
+    <h2 id="platformer-heading">2D Platformer</h2>
+    <div class="grid" style="grid-template-columns:1fr 1fr; gap:16px; margin-top:16px;">
+      <div class="card"><img src="../images/platformer_hero.jpg" alt="Platformer screenshot" width="1200" height="675"></div>
+      <div class="card"><div class="card-body">
+        <h3>Overview</h3>
+        <p>Three levels: classic, dark, and ice with slide mechanics. Double jump, hazards, and door-to-finish.</p>
+        <div class="card-actions">
+          <a class="btn play-tag play-tag--webgl" href="../games/platformer/index.html" target="_blank" rel="noopener">Play</a>
+          <a class="btn btn-light" href="https://github.com/USER/REPO/releases/download/v1.0/Platformer_win64_v1.0.zip" target="_blank" rel="noopener">Download</a>
+          <a class="btn btn-ghost" href="https://github.com/USER/PlatformerRepo" target="_blank" rel="noopener">Repo</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="grid" style="grid-template-columns:1fr 1fr; gap:16px; margin-top:16px;">
+      <div>
+        <h3>Highlights</h3>
+        <ul class="bullets">
+          <li>Double jump, sliding on ice, instant-death hazards.</li>
+          <li>Camera follow, checkpoints, level transitions.</li>
+          <li>Simple HUD and audio settings.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Tech Notes</h3>
+        <ul class="bullets">
+          <li>Unity 6 LTS, C#, Input System.</li>
+          <li>GameManager for lives, score, progression.</li>
+          <li>Pixel-perfect camera and tuned physics.</li>
+        </ul>
+      </div>
+    </div>
   </section>
 </main>
 
-<footer class="site-footer" role="contentinfo">
+<footer class="site-footer">
   <div class="container footer-inner">
     <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Cycle color theme"></button>
     <button id="hcToggle" class="btn btn-ghost" type="button" aria-pressed="false" aria-label="Toggle high contrast"></button>
@@ -152,6 +122,6 @@
   </div>
 </footer>
 
-<script src="../js/main.js"></script>
+<script src="../js/main.js" defer></script>
 </body>
 </html>

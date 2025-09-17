@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Media — BrickWorks Studio</title>
+  
+  <script>try{const hc=localStorage.getItem("highContrast")==="1";const base=localStorage.getItem("theme")||"indigo";document.documentElement.setAttribute("data-theme",hc?"high-contrast":base);}catch(e){}</script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="canonical" href="https://pontusfalkman.github.io/test2.github.io/media.html">
+  <meta name="description" content="Watch videos and view screenshots from our Unity game prototypes.">
+  
+  <link rel="preload" as="style" href="css/style.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/style.css"></noscript>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">BrickWorks Studio</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link cta" href="contact.html">Contact us</a>
+      <button id="navToggle" class="btn btn-ghost hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryMenu">
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <div class="menu" id="primaryMenu">
+        <a class="nav-link" href="projects/index.html">Games</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="media.html" aria-current="page">Media</a>
+        <a class="nav-link" href="devlog/index.html">Devlog</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="container page" id="main">
+  <h1>Media</h1>
+  <p class="muted">Watch demos and view screenshots from our projects.</p>
+
+  <section aria-labelledby="videos-heading" style="margin-top:24px">
+    <h2 id="videos-heading">Videos</h2>
+    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div class="card"><div class="card-body">
+        <h3>Puzzle Prototype Overview</h3>
+        <div style="position:relative;padding-top:56.25%"><iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Puzzle prototype overview video" loading="lazy" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>Platformer Demo</h3>
+        <div style="position:relative;padding-top:56.25%"><iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="2D Platformer gameplay demo" loading="lazy" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="gallery-heading" style="margin-top:24px">
+    <h2 id="gallery-heading">Image Gallery</h2>
+    <div class="grid">
+      <figure class="card">
+        <img src="images/puzzle_hero.jpg" alt="A screenshot of the puzzle game showing logical gate components on a grid." width="1200" height="675">
+        <div class="card-body"><figcaption>Puzzle — drag-and-snap test</figcaption></div>
+      </figure>
+      <figure class="card">
+        <img src="images/platformer_hero.jpg" alt="The player character sliding down an icy slope in the 2D platformer game." width="1200" height="675">
+        <div class="card-body"><figcaption>Platformer — ice slide mechanic</figcaption></div>
+      </figure>
+      <figure class="card">
+        <img src="images/systems_thumb.jpg" alt="A diagram of the UI and save system logic." width="1200" height="675">
+        <div class="card-body"><figcaption>Systems — UI and save logic</figcaption></div>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Toggle light and dark theme"></button>
+    <button id="hcToggle" class="btn btn-ghost" type="button" aria-pressed="false" aria-label="Enable high contrast mode"></button>
+    <p>© <span id="year"></span> BrickWorks Studio</p>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

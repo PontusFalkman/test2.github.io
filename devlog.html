@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contact — BrickWorks Studio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Devlog — BrickWorks Studio</title>
   
   <script>try{const hc=localStorage.getItem("highContrast")==="1";const base=localStorage.getItem("theme")||"indigo";document.documentElement.setAttribute("data-theme",hc?"high-contrast":base);}catch(e){}</script>
   
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <link rel="canonical" href="https://pontusfalkman.github.io/test2.github.io/contact.html">
-  <meta name="description" content="Send a message about feedback, collaboration, or questions about our Unity projects.">
-
-  <link rel="preload" as="style" href="css/style.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/style.css"></noscript>
+  <link rel="canonical" href="https://pontusfalkman.github.io/test2.github.io/devlog/">
+  <meta name="description" content="Development logs, updates, and milestones for BrickWorks Studio projects.">
+  
+  <link rel="preload" as="style" href="css/style.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -27,28 +30,40 @@
         <span class="visually-hidden">Menu</span>
       </button>
 
-<div class="menu" id="primaryMenu">
-    <a class="nav-link" href="games.html">Games</a>
-    <a class="nav-link" href="about.html">About</a>
-    <a class="nav-link" href="media.html">Media</a>
-    <a class="nav-link" href="devlog.html">Devlog</a>
-    <a class="nav-link cta" href="contact.html">Contact us</a>
-</div>
+      <div class="menu" id="primaryMenu">
+        <a class="nav-link" href="games.html">Games</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="media.html">Media</a>
+        <a class="nav-link" href="devlog.html">Devlog</a>
+        <a class="nav-link cta" href="contact.html">Contact us</a>
+      </div>
     </nav>
   </div>
 </header>
 
-<main class="container page" id="main">
-  <h1>Contact</h1>
-  <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+<section class="hero">
+  <div class="container">
+    <h1>Devlog</h1>
+    <p class="tagline">Updates, milestones, and notes from development.</p>
+  </div>
+</section>
 
-  <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-    <label>Your email<input type="email" name="email" required></label>
-      <label>Message<textarea name="message" rows="6" required></textarea></label>
-    <button class="btn" type="submit">Send</button>
-  </form>
-  <p class="muted">Feedback is welcome.</p>
-  <p class="muted">Links: <a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener">GitHub</a> · <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" rel="noopener">YouTube</a></p>
+<main class="container" id="main">
+  <section class="projects" aria-labelledby="posts-heading">
+    <h2 id="posts-heading" class="visually-hidden">All Posts</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="card-body">
+          <h3><a href="devlog/2025-09-07-initial-setup.html">Initial setup and goals</a></h3>
+          <p class="muted">September 7, 2025</p>
+          <p>Created the devlog structure and first post to track project progress.</p>
+          <div class="card-actions">
+            <a class="btn btn-light" href="devlog/2025-09-07-initial-setup.html">Read more</a>
+          </div>
+        </div>
+      </article>
+      </div>
+  </section>
 </main>
 
 <footer class="site-footer">

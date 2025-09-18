@@ -67,23 +67,25 @@ function initNavEnhancements() {
   // Initialize state: all closed
   closeAll();
 
-  // --- UPDATE: More robust logic for marking the current page link ---
-  // This now correctly matches directory paths and also expands the parent dropdown menu.
+  // Mark current page link (directory-safe)
   try {
-    const currentPath = location.pathname.endsWith('/') ? location.pathname : location.pathname.replace(/[^/]*$/, '');
+    const currentPath = location.pathname.endsWith('/')
+      ? location.pathname
+      : location.pathname.replace(/[^/]*$/, '');
     menu.querySelectorAll('a[href]').forEach(a => {
-      const linkPath = a.pathname.endsWith('/') ? a.pathname : a.pathname.replace(/[^/]*$/, '');
+      const linkPath = a.pathname.endsWith('/')
+        ? a.pathname
+        : a.pathname.replace(/[^/]*$/, '');
       if (linkPath === currentPath) {
-          a.setAttribute('aria-current', 'page');
-          // Also expand parent menu if inside a dropdown for better UX
-          const parentGroup = a.closest('.menu-group');
-          if(parentGroup) {
-              const toggleBtn = parentGroup.querySelector('.menu-toggle');
-              if (toggleBtn) {
-                toggleBtn.setAttribute('aria-expanded', 'true');
-                parentGroup.classList.add('open'); // Keep it open on page load
-              }
+        a.setAttribute('aria-current', 'page');
+        const parentGroup = a.closest('.menu-group');
+        if (parentGroup) {
+          const toggleBtn = parentGroup.querySelector('.menu-toggle');
+          if (toggleBtn) {
+            toggleBtn.setAttribute('aria-expanded', 'true');
+            parentGroup.classList.add('open');
           }
+        }
       }
     });
   } catch(e) {
@@ -111,14 +113,21 @@ function initMobileNav() {
     if (open) { scrollLocker.lock(); navBtn.focus(); } else { scrollLocker.unlock(); }
   });
 
+  // Close on link click inside drawer
+  menuEl.addEventListener('click', (e) => {
+    if (e.target.closest('a')) closeDrawer();
+  });
+
+  // Click outside closes
   document.addEventListener('click', e => {
     if (!e.target.closest('#primaryMenu') && !e.target.closest('#navToggle')) closeDrawer();
   });
 
+  // Escape closes
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 }
 
-// A module for handling the theme switcher + OS High Contrast sync.
+// Theme switching + OS High Contrast sync.
 function initTheme() {
   const BASE_THEMES = ["indigo", "teal", "slate"];
   const mqForced = window.matchMedia?.("(forced-colors: active)");
@@ -174,7 +183,6 @@ function initTheme() {
     setThemeLabel(next);
 
     const hc = localStorage.getItem("highContrast") === "1";
-    // Only update live if not in HC (manual or OS)
     const osHC = !!mqForced && mqForced.matches;
     if (!hc && !osHC) {
       document.documentElement.setAttribute("data-theme", next);
@@ -182,17 +190,14 @@ function initTheme() {
     }
   }
 
-  // Sync with OS-level High Contrast
   function updateFromOS(){
     const osHC = !!mqForced && mqForced.matches;
     const manualHC = localStorage.getItem("highContrast") === "1";
     if (osHC) {
-      // Force HC visually and mark label as OS-driven
       document.documentElement.setAttribute("data-theme", "high-contrast");
       setHCLabel(true, true);
       setMetaThemeColorFromCSS();
     } else {
-      // Respect manual choice or base theme
       if (manualHC) {
         document.documentElement.setAttribute("data-theme", "high-contrast");
         setHCLabel(true, false);
@@ -215,10 +220,9 @@ function initTheme() {
   if (hcBtn) hcBtn.addEventListener("click", () => {
     const osHC = !!mqForced && mqForced.matches;
     if (osHC) {
-      // When OS forces HC, keep site in HC but still flip the stored preference.
       const was = localStorage.getItem("highContrast") === "1";
       localStorage.setItem("highContrast", was ? "0" : "1");
-      updateFromOS(); // keep label "OS" and theme in HC
+      updateFromOS();
       return;
     }
     const enabled = localStorage.getItem("highContrast") === "1";
@@ -229,18 +233,17 @@ function initTheme() {
   if (mqForced && mqForced.addEventListener) {
     mqForced.addEventListener("change", updateFromOS);
   } else if (mqForced && mqForced.addListener) {
-    // Safari fallback
     mqForced.addListener(updateFromOS);
   }
 }
 
-// Sets the copyright year in the footer.
+// Footer year
 function setYear(){
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 }
 
-// Initialize all modules after the DOM is loaded.
+// Init
 document.addEventListener('DOMContentLoaded', () => {
   setYear();
   initNavEnhancements();

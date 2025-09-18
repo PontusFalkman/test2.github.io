@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contact — BrickWorks Studio</title>
-  
-  <script>try{const hc=localStorage.getItem("highContrast")==="1";const base=localStorage.getItem("theme")||"indigo";document.documentElement.setAttribute("data-theme",hc?"high-contrast":base);}catch(e){}</script>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2D Platformer — BrickWorks Studio</title>
+
+  <script>
+  try {
+    const hc = localStorage.getItem("highContrast")==="1";
+    const base = localStorage.getItem("theme") || "indigo";
+    document.documentElement.setAttribute("data-theme", hc ? "high-contrast" : base);
+  } catch(e){}
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <link rel="canonical" href="https://pontusfalkman.github.io/test2.github.io/contact.html">
-  <meta name="description" content="Send a message about feedback, collaboration, or questions about our Unity projects.">
-
-  <link rel="preload" as="style" href="css/style.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/style.css"></noscript>
+  <link rel="preload" as="style" href="../css/style.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../css/style.css"></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html">BrickWorks Studio</a>
+    <a class="brand" href="../index.html">BrickWorks Studio</a>
 
     <nav class="nav" aria-label="Primary">
       <button id="navToggle" class="btn btn-ghost hamburger" type="button"
@@ -27,28 +31,20 @@
         <span class="visually-hidden">Menu</span>
       </button>
 
-<div class="menu" id="primaryMenu">
-    <a class="nav-link" href="games.html">Games</a>
-    <a class="nav-link" href="about.html">About</a>
-    <a class="nav-link" href="media.html">Media</a>
-    <a class="nav-link" href="devlog.html">Devlog</a>
-    <a class="nav-link cta" href="contact.html">Contact us</a>
-</div>
+      <div class="menu" id="primaryMenu">
+        <a class="nav-link" href="../games.html">Games</a>
+        <a class="nav-link" href="../about.html">About</a>
+        <a class="nav-link" href="../media.html">Media</a>
+        <a class="nav-link" href="../devlog.html">Devlog</a>
+        <a class="nav-link cta" href="../contact.html">Contact us</a>
+      </div>
     </nav>
   </div>
 </header>
 
-<main class="container page" id="main">
-  <h1>Contact</h1>
-  <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-
-  <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-    <label>Your email<input type="email" name="email" required></label>
-      <label>Message<textarea name="message" rows="6" required></textarea></label>
-    <button class="btn" type="submit">Send</button>
-  </form>
-  <p class="muted">Feedback is welcome.</p>
-  <p class="muted">Links: <a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener">GitHub</a> · <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" rel="noopener">YouTube</a></p>
+<main id="main" class="container page">
+  <h1>WebGL build coming soon</h1>
+  <p class="muted">This placeholder will be replaced by the Unity WebGL files.</p>
 </main>
 
 <footer class="site-footer">
@@ -57,24 +53,19 @@
     <button id="hcToggle" class="btn btn-ghost" type="button" aria-pressed="false" aria-label="Enable high contrast mode"></button>
     <nav class="social" aria-label="Social media">
       <a href="https://x.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-        <!-- X icon -->
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.06 3H23l-7.5 8.57L22.5 21H16l-4.73-6.1L5.82 21H2.06l8.18-9.34L2 3h6l4.26 5.64L20.06 3Z"/></svg>
       </a>
       <a href="https://github.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <!-- GitHub icon -->
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.49v-1.7c-2.78.61-3.37-1.17-3.37-1.17a2.66 2.66 0 0 0-1.11-1.47c-.9-.62.07-.6.07-.6a2.1 2.1 0 0 1 1.54 1.04 2.14 2.14 0 0 0 2.92.83 2.14 2.14 0 0 1 .64-1.34c-2.22-.25-4.56-1.11-4.56-4.93a3.86 3.86 0 0 1 1.03-2.67 3.58 3.58 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.46 9.46 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.37.84.41 1.8.1 2.64a3.86 3.86 0 0 1 1.03 2.67c0 3.83-2.34 4.68-4.57 4.93a2.4 2.4 0 0 1 .69 1.86v2.76c0 .27.18.59.69.49A10 10 0 0 0 12 2Z"/></svg>
       </a>
       <a href="https://www.youtube.com/@yourhandle" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-        <!-- YouTube icon -->
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.75 15.5v-7L16 12l-6.25 3.5Z"/></svg>
       </a>
-      <!-- Add more as needed -->
     </nav>
-    
     <p>© <span id="year"></span> BrickWorks Studio</p>
   </div>
 </footer>
 
-<script src="js/main.js" defer></script>
+<script src="../js/main.js" defer></script>
 </body>
 </html>
